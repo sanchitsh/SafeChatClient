@@ -150,7 +150,7 @@ public class Client extends JFrame{
                 }
         );
     }
-    public String getName(){
-     return this.name;
+    public String getContact(){
+     return this.contact;
     }
 }
