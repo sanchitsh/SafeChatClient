@@ -1,6 +1,7 @@
 package ui;
 
 import client.Client;
+import client.ClientTest;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,10 +24,7 @@ public class openChatBox implements ActionListener {
         String gender = String.valueOf(chatMenu.getGenderTypesBox().getSelectedItem());
         String age = String.valueOf(chatMenu.getAgeRangeBox().getSelectedItem());
 
-        Client c;
-        c = new Client("127.0.0.1",nickname,name, contact, ethnicity, gender, age);
-        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        c.startRunning();
-        Client b;
+        ClientTest c=new ClientTest();
+        c.run();
     }
 }

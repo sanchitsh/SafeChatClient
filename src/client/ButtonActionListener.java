@@ -11,6 +11,5 @@ public class ButtonActionListener implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-      //  client.showMessage(client.getName());
     }
 }
