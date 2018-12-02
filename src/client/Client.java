@@ -1,3 +1,5 @@
+package client;
+
 import java.io.*;
 import java.net.*;
 import java.awt.*;
@@ -20,7 +22,7 @@ public class Client extends JFrame{
 
     //constructor
     public Client(String host,String nickname,String realName,String Email){
-        super("Client");
+        super("client.Client");
         this.username=nickname;this.realname=realName;this.email=Email;
         serverIP = host;
         userText = new JTextField();
@@ -47,7 +49,7 @@ public class Client extends JFrame{
             setupStreams();
             whileChatting();
         }catch(EOFException eofException){
-            showMessage("\n Client terminated the connection");
+            showMessage("\n client.Client terminated the connection");
         }catch(IOException ioException){
             ioException.printStackTrace();
         }finally{
