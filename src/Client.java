@@ -42,6 +42,7 @@ public class Client extends JFrame{
 
     //connect to server
     public void startRunning(){
+        shareInfo();
         try{
             connectToServer();
             setupStreams();
@@ -51,14 +52,14 @@ public class Client extends JFrame{
         }catch(IOException ioException){
             ioException.printStackTrace();
         }finally{
-            closeConnection();
+          //  closeConnection();
         }
     }
 
     //connect to server
     private void connectToServer() throws IOException{
         showMessage("Attempting connection... \n");
-        connection = new Socket(InetAddress.getByName(serverIP), 6969);
+        connection = new Socket(InetAddress.getByName(serverIP), 6789);
         showMessage("Connection Established! Connected to: " + connection.getInetAddress().getHostName());
     }
 
@@ -81,6 +82,12 @@ public class Client extends JFrame{
                 showMessage("Unknown data received!");
             }
         }while(!message.equals("SERVER - END"));
+    }
+    private void shareInfo(){
+        JButton button = new JButton("Reveal Yourself");
+        button.setBackground(Color.CYAN);
+        add(button, BorderLayout.EAST);
+
     }
 
     //Close connection
