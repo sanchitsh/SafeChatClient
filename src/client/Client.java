@@ -54,7 +54,7 @@ public class Client extends JFrame{
         }catch(IOException ioException){
             ioException.printStackTrace();
         }finally{
-          //  closeConnection();
+           closeConnection();
         }
     }
 
@@ -89,6 +89,7 @@ public class Client extends JFrame{
         JButton button = new JButton("Reveal Yourself");
         button.setBackground(Color.CYAN);
         add(button, BorderLayout.EAST);
+        button.addActionListener(new ButtonActionListener(this));
 
     }
 
@@ -117,7 +118,7 @@ public class Client extends JFrame{
     }
 
     //update chat window
-    private void showMessage(final String message){
+    public void showMessage(final String message){
         SwingUtilities.invokeLater(
                 new Runnable(){
                     public void run(){

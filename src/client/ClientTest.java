@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class ClientTest {
     public static void main(String[] args) {
-        String nickname="bigboi"; String name="jeff";
+        String nickname="smallboi"; String name="jeff";
         String contact="0000012";
         String ethnicity="brown";
         String email="dsada@dnaksd.com";
