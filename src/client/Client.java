@@ -1,5 +1,7 @@
 package client;
 
+import model.Person;
+
 import java.io.*;
 import java.net.*;
 import java.awt.*;
@@ -16,14 +18,24 @@ public class Client extends JFrame{
     private String message = "";
     private String serverIP;
     private Socket connection;
-    private String username;
-    private String realname;
-    private String ethnicity; private String email;
+
+    private String nickname;
+    private String name;
+    private String contact;
+    private String ethnicity;
+    private String gender;
+    private String age;
 
     //constructor
-    public Client(String host,String nickname,String realName,String Email){
+    public Client(String host, String nickname, String name, String contact, String ethnicity, String gender, String age){
         super("client.Client");
-        this.username=nickname;this.realname=realName;this.email=Email;
+        this.nickname = nickname;
+        this.name = name;
+        this.contact = contact;
+        this.ethnicity = ethnicity;
+        this.gender = gender;
+        this.age = age;
+
         serverIP = host;
         userText = new JTextField();
         userText.setEditable(false);
@@ -108,9 +120,9 @@ public class Client extends JFrame{
     //send message to server
     private void sendMessage(String message){
         try{
-            output.writeObject(username+" : " + message);
+            output.writeObject(nickname+" : " + message);
             output.flush();
-            showMessage("\n"+username+" : " + message);
+            showMessage("\n"+nickname+" : " + message);
         }catch(IOException ioException){
             chatWindow.append("\n Oops! Something went wrong!");
         }

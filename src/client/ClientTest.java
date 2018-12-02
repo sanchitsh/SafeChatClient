@@ -9,7 +9,7 @@ public class ClientTest {
         String ethnicity="brown";
         String email="dsada@dnaksd.com";
         Client c;
-        c = new Client("127.0.0.1",nickname,name,email);
+        c = new Client("127.0.0.1",nickname,name);
         c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         c.startRunning();
 

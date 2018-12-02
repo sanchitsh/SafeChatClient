@@ -7,6 +7,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class ChatMenu extends JFrame {
+    private JTextArea userNameTextInput;
+    private JTextArea nameTextInput;
+    private JTextArea phoneTextInput;
+    private JComboBox genderTypesBox;
+    private JComboBox ethnicityTypesBox;
+    private JComboBox ageRangeBox;
 
     public ChatMenu() {
         super("Chat Menu");
@@ -37,24 +43,33 @@ public class ChatMenu extends JFrame {
         }
 
         characterProfile.add(new JLabel("Username:"));
-        characterProfile.add(new JTextArea(1,10));
+        userNameTextInput = new JTextArea(1, 10);
+        characterProfile.add(userNameTextInput);
 
         characterName.add(new JLabel("Name:"));
-        characterName.add(new JTextArea(1,10));
+        nameTextInput = new JTextArea(1, 10);
+        characterName.add(nameTextInput);
 
-        contactInfo.add(new JLabel("Contact Information:"));
-        contactInfo.add(new JTextArea(2, 10));
+        contactInfo.add(new JLabel("Phone Number:"));
+        phoneTextInput = new JTextArea(1, 10);
+        contactInfo.add(phoneTextInput);
 
         characterOptions.add(new JLabel("Set your preferences:"));
-        characterOptions.add(new JComboBox<>(genderTypes));
-        characterOptions.add(new JComboBox<>(ethnicityTypes));
-        characterOptions.add(new JComboBox<>(ageRange));
+        genderTypesBox = new JComboBox<>(genderTypes);
+        characterOptions.add(genderTypesBox);
+
+        ethnicityTypesBox = new JComboBox<>(ethnicityTypes);
+        characterOptions.add(ethnicityTypesBox);
+
+        ageRangeBox = new JComboBox<>(ageRange);
+        characterOptions.add(ageRangeBox);
 
         cards.add(characterProfile);
         cards.add(characterOptions);
         cards.add(characterName);
         cards.add(contactInfo);
         JButton signUp = new JButton("Sign up!");
+        signUp.setBackground(Color.PINK);
         signUp.addActionListener(new openChatBox(this));
         cards.add(signUp);
         add(cards, BorderLayout.CENTER);
@@ -63,5 +78,29 @@ public class ChatMenu extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    public JTextArea getUserNameTextInput() {
+        return userNameTextInput;
+    }
+
+    public JTextArea getNameTextInput() {
+        return nameTextInput;
+    }
+
+    public JTextArea getPhoneTextInput() {
+        return phoneTextInput;
+    }
+
+    public JComboBox getGenderTypesBox() {
+        return genderTypesBox;
+    }
+
+    public JComboBox getEthnicityTypesBox() {
+        return ethnicityTypesBox;
+    }
+
+    public JComboBox getAgeRangeBox() {
+        return ageRangeBox;
     }
 }
